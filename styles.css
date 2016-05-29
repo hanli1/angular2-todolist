@@ -85,7 +85,6 @@ li{
   border-top-width: 1px;
   border-top-color: #eeeeee;
   border-top-style: solid;
-  padding:10px;
 }
 
 .title{
@@ -95,3 +94,26 @@ li{
   margin-bottom: 50px;
   font-variant: small-caps;
 }
+
+.item-box{
+  padding:10px;
+}
+
+@keyframes FadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  } 
+}
+
+@keyframes FadeOutAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  } 
+}
+

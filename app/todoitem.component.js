@@ -12,10 +12,17 @@ var core_1 = require('@angular/core');
 var todostore_1 = require('./todostore');
 var TodoItem = (function () {
     function TodoItem() {
+        this.active = false;
         this.done = new core_1.EventEmitter();
     }
     TodoItem.prototype.deleteClicked = function () {
         this.done.next(this.item);
+    };
+    TodoItem.prototype.mouseEntered = function () {
+        this.active = true;
+    };
+    TodoItem.prototype.mouseLeft = function () {
+        this.active = false;
     };
     __decorate([
         core_1.Input(), 
@@ -28,7 +35,7 @@ var TodoItem = (function () {
     TodoItem = __decorate([
         core_1.Component({
             selector: 'todo-item',
-            template: "\n\t\t<div>\n\t\t\t{{ item.text }}\n\t\t\t<button class=\"delete-button\" (click)=\"deleteClicked()\">X</button>\n\t\t</div>\n\t"
+            template: "\n\t\t<div class=\"item-box\" (mouseenter)=\"mouseEntered()\" (mouseleave)=\"mouseLeft()\">\n\t\t\t{{ item.text }}\n\t\t\t<button [hidden]=\"!active\" class=\"delete-button\" (click)=\"deleteClicked()\">X</button>\n\t\t</div>\n\t",
         }), 
         __metadata('design:paramtypes', [])
     ], TodoItem);
